@@ -1,3 +1,5 @@
+// The following main.go is taken from https://github.com/Luet-lab/extensions/blob/master/extensions/package-browser/main.go
+
 package main
 
 import (
@@ -32,7 +34,7 @@ var Repositories installer.Repositories
 func refreshRepositories(repos installer.Repositories) (installer.Repositories, error) {
 	syncedRepos := installer.Repositories{}
 	for _, r := range repos {
-		repo, err := r.Sync(false)
+		repo, err := r.Sync(true)
 		if err != nil {
 			return nil, errors.Wrap(err, "Failed syncing repository: "+r.GetName())
 		}
