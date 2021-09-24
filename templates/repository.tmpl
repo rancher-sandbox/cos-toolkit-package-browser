@@ -1,3 +1,4 @@
+{{ $config := .Config }}
 {{ $reponame := .RepositoryName }}
 {{ $additionalData := .AdditionalData }}
 {{ $data := index $additionalData $reponame}}
@@ -42,7 +43,7 @@ body {
 
         <div class="column is-half">
           <h1 class="title">
-            <a href="/"><span class="icon has-text-primary is-medium 	"> <i class="fas fa-home"></i></span> </a> {{$reponame}}
+            <a href="{{$config.BaseUrl}}"><span class="icon has-text-primary is-medium 	"> <i class="fas fa-home"></i></span> </a> {{$reponame}}
           </h1>
         </div>
 
@@ -103,9 +104,9 @@ body {
     <tbody>
       {{ range $_, $pack := .Packages }}
         <tr>
-          <td class="name"><a href="/{{$reponame}}/{{$pack.Category}}/{{$pack.Name}}"> {{$pack.Name}}</a></td>
+          <td class="name"><a href="{{$config.BaseUrl}}/{{$reponame}}/{{$pack.Category}}/{{$pack.Name}}"> {{$pack.Name}}</a></td>
           <td class="category">{{$pack.Category}}</td>
-          <td class="version"><a href="/{{$reponame}}/{{$pack.Category}}/{{$pack.Name}}/{{$pack.Version}}">{{$pack.Version}}</a></td>
+          <td class="version"><a href="{{$config.BaseUrl}}/{{$reponame}}/{{$pack.Category}}/{{$pack.Name}}/{{$pack.Version}}">{{$pack.Version}}</a></td>
           </tr>
       {{end}}
     </tbody>

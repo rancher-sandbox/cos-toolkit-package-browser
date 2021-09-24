@@ -1,4 +1,4 @@
-
+{{ $config := .Config }}
 <html>
 <head>
  <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet"> 
@@ -34,7 +34,7 @@ body {
     <div class="container">
         
       <h1 class="title">
-        <a href="/"><span class="icon has-text-primary is-medium 	"> <i class="fas fa-home"></i></span> </a> Matches for {{.PackageCategory}}/{{.PackageName}}
+        <a href="{{$config.BaseUrl}}"><span class="icon has-text-primary is-medium 	"> <i class="fas fa-home"></i></span> </a> Matches for {{.PackageCategory}}/{{.PackageName}}
       </h1>
       <h2 class="subtitle">
         Found {{ len .Packages }} package(s)
@@ -72,10 +72,10 @@ body {
       {{ range $repo, $packs := .Packages }}
       {{ range $_, $pack := $packs }}
           <tr>
-            <td><a href="/{{$repo}}/{{$pack.Category}}/{{$pack.Name}}/{{$pack.Version}}"> {{$pack.Name}}</a></td>
+            <td><a href="{{$config.BaseUrl}}/{{$repo}}/{{$pack.Category}}/{{$pack.Name}}/{{$pack.Version}}"> {{$pack.Name}}</a></td>
             <td>{{$pack.Category}}</td>
-            <td><a href="/{{$repo}}/{{$pack.Category}}/{{$pack.Name}}/{{$pack.Version}}">{{$pack.Version}}</a></td>
-            <td><a href="/{{$repo}}">{{$repo}}</a></td>
+            <td><a href="{{$config.BaseUrl}}/{{$repo}}/{{$pack.Category}}/{{$pack.Name}}/{{$pack.Version}}">{{$pack.Version}}</a></td>
+            <td><a href="{{$config.BaseUrl}}/{{$repo}}">{{$repo}}</a></td>
             </tr>
         {{end}}
         {{end}}

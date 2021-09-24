@@ -1,4 +1,5 @@
 
+{{ $config := .Config }}
 <html>
 <head>
  <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet"> 
@@ -47,7 +48,7 @@ body {
 {{ range $_, $repo := .Repositories }}  
 {{ $data := index $additionalData $repo.Name}}
 {{ $github := index $data "github" }}
-<a href="/{{$repo.Name}}">
+<a href="{{$config.BaseUrl}}/{{$repo.Name}}">
     <div class="container m-1 notification is-primary">
       <h1 class="title">{{$repo.Name}}</h1>
       <h2 class="subtitle">
@@ -88,10 +89,10 @@ body {
       {{ range $repo, $packs := .Packages }}
       {{ range $_, $pack := $packs }}
           <tr>
-            <td><a href="/{{$repo}}/{{$pack.Category}}/{{$pack.Name}}/{{$pack.Version}}"> {{$pack.Name}}</a></td>
+            <td><a href="{{$config.BaseUrl}}/{{$repo}}/{{$pack.Category}}/{{$pack.Name}}/{{$pack.Version}}"> {{$pack.Name}}</a></td>
             <td>{{$pack.Category}}</td>
-            <td><a href="/{{$repo}}/{{$pack.Category}}/{{$pack.Name}}/{{$pack.Version}}">{{$pack.Version}}</a></td>
-            <td><a href="/{{$repo}}">{{$repo}}</a></td>
+            <td><a href="{{$config.BaseUrl}}/{{$repo}}/{{$pack.Category}}/{{$pack.Name}}/{{$pack.Version}}">{{$pack.Version}}</a></td>
+            <td><a href="{{$config.BaseUrl}}/{{$repo}}">{{$repo}}</a></td>
             </tr>
         {{end}}
         {{end}}

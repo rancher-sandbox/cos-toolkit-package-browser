@@ -7,3 +7,5 @@ repositories:
   url: "quay.io/costoolkit/releases-green-arm64"
   type: "docker"
   github: "https://github.com/rancher-sandbox/cOS-toolkit"
+
+BaseUrl: "https://rancher-sandbox.github.io/cos-toolkit-package-browser/"
