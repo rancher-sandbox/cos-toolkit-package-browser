@@ -3,3 +3,7 @@ repositories:
   url: "quay.io/costoolkit/releases-green"
   type: "docker"
   github: "https://github.com/rancher-sandbox/cOS-toolkit"
+- name: "cos-toolkit-green-arm64"
+  url: "quay.io/costoolkit/releases-green-arm64"
+  type: "docker"
+  github: "https://github.com/rancher-sandbox/cOS-toolkit"
