@@ -22,7 +22,6 @@ jobs:
       run: |
         sudo -E luet-package-browser --config config.yaml --output build --templates templates
     - name: Deploy GH Pages 🚀
-      if: github.ref == 'refs/heads/master' && github.event_name == 'push'
       uses: JamesIves/github-pages-deploy-action@3.6.2
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
