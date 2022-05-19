@@ -1,10 +1,10 @@
 repositories:
-- name: "cos-toolkit-green"
-  url: "quay.io/costoolkit/releases-green"
+- name: "cos-toolkit-teal"
+  url: "quay.io/costoolkit/releases-teal"
   type: "docker"
   github: "https://github.com/rancher-sandbox/cOS-toolkit"
-- name: "cos-toolkit-green-arm64"
-  url: "quay.io/costoolkit/releases-green-arm64"
+- name: "cos-toolkit-teal-arm64"
+  url: "quay.io/costoolkit/releases-teal-arm64"
   type: "docker"
   github: "https://github.com/rancher-sandbox/cOS-toolkit"
 
