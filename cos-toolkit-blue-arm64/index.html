@@ -1,0 +1,522 @@
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/prism.min.js" integrity="sha512-9+422Bs3A87UkWfp+qV80Nfv9arhbCXKY1rxrF2seorI36mIIstMiuBfyKLF1yH1nnzQkEWq2xrzT4XU3Z+vrA==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-Q3qGP1uJL/B0sEmu57PKXjCirgPKMbg73OLRbTJ6lfHCVU5zkHqmcTI5EV2fSoPV1MHdKsCBE7m/aS6q0pPjRQ==" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism-solarizedlight.min.css" integrity="sha512-fibfhB71IpdEKqLKXP/96WuX1cTMmvZioYp7T6I+lTbvJrrjEGeyYdAf09GHpFptF8toQ32woGZ8bw9+HjZc0A==" crossorigin="anonymous" />
+ <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet"> 
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.css" />
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+<style>
+table.dataTable.nowrap th,table.dataTable.nowrap td{white-space:nowrap}div.dataTables_wrapper div.dataTables_length select{width:75px;display:inline-block}div.dataTables_wrapper div.dataTables_filter{text-align:right}div.dataTables_wrapper div.dataTables_filter label{font-weight:400;white-space:nowrap;text-align:left}div.dataTables_wrapper div.dataTables_filter input{margin-left:.5em;display:inline-block;width:auto}div.dataTables_wrapper div.dataTables_paginate{white-space:nowrap;float:right}@media screen and (max-width: 768px){div.dataTables_paginate{white-space:nowrap;float:none!important;display:flex;justify-content:space-around}}table.dataTable thead>tr>th.sorting_asc,table.dataTable thead>tr>th.sorting_desc,table.dataTable thead>tr>th.sorting,table.dataTable thead>tr>td.sorting_asc,table.dataTable thead>tr>td.sorting_desc,table.dataTable thead>tr>td.sorting{padding-right:30px}table.dataTable thead .sorting,table.dataTable thead .sorting_asc,table.dataTable thead .sorting_desc,table.dataTable thead .sorting_asc_disabled,table.dataTable thead .sorting_desc_disabled{cursor:pointer;position:relative}table.dataTable thead .sorting:after,table.dataTable thead .sorting_asc:after,table.dataTable thead .sorting_desc:after,table.dataTable thead .sorting_asc_disabled:after,table.dataTable thead .sorting_desc_disabled:after{position:absolute;bottom:4px;right:4px;display:block;font-family:"Font Awesome\ 5 Free";opacity:.5}table.dataTable thead .sorting:after{opacity:.2;content:"\f0dc"}table.dataTable thead .sorting_asc:after{content:"\f0de"}table.dataTable thead .sorting_desc:after{content:"\f0dd"}table.dataTable thead .sorting_asc_disabled:after,table.dataTable thead .sorting_desc_disabled:after{color:#eee}@media screen and (max-width: 768px){div.dataTables_wrapper div.dataTables_length,div.dataTables_wrapper div.dataTables_filter,div.dataTables_wrapper div.dataTables_info,div.dataTables_wrapper div.dataTables_paginate{text-align:center}}
+</style>
+<script type="text/javascript">
+!function(e){"function"==typeof define&&define.amd?define(["jquery","datatables.net"],function(a){return e(a,window,document)}):"object"==typeof exports?module.exports=function(a,t){return a||(a=window),t&&t.fn.dataTable||(t=require("datatables.net")(a,t).$),e(t,a,a.document)}:e(jQuery,window,document)}(function(e,a,t){var n=e.fn.dataTable;return e.extend(!0,n.defaults,{dom:"<'columns'<'column is-6'l><'column is-6'f>><'columns'<'column is-12 table-container'tr>><'columns'<'column is-5'i><'column is-7'p>>",renderer:"bulma"}),e.extend(n.ext.classes,{sWrapper:"dataTables_wrapper dt-bulma",sFilterInput:"input is-small",sLengthSelect:"input is-small",sProcessing:"dataTables_processing panel",sPageButton:"pagination-link",sPagePrevious:"pagination-previous",sPageNext:"pagination-next",sPageButtonActive:"is-current"}),n.ext.renderer.pageButton.bulma=function(a,i,s,r,l,o){var u,d,c,p=new n.Api(a),f=a.oClasses,g=a.oLanguage.oPaginate,b=a.oLanguage.oAria.paginate||{},m=0,x=function(t,n){var i,r,c,v,w=function(a){a.preventDefault(),!e(a.currentTarget).is("[disabled]")&&!e(a.currentTarget).is("#table_ellipsis")&&p.page()!=a.data.action&&p.page(a.data.action).draw("page")};for(i=0,r=n.length;i<r;i++)if(v=n[i],e.isArray(v))x(t,v);else{d=u="";var T=!1;switch(v){case"ellipsis":u="&#x2026;",T=!0;break;case"first":u=g.sFirst,T=v+!(0<l);break;case"previous":u=g.sPrevious,T=!(0<l);break;case"next":u=g.sNext,T=!(l<o-1);break;case"last":u=g.sLast,T=v+!(l<o-1);break;default:u=v+1,d=l===v?" is-current":"",T=!1}u&&(c=e("<li>",{id:0===s&&"string"==typeof v?a.sTableId+"_"+v:null}).append(e("<a>",{class:f.sPageButton+" "+d,href:"#","aria-controls":a.sTableId,"aria-label":b[v],"data-dt-idx":m,tabindex:a.iTabIndex,disabled:T}).html(u)).appendTo(t),a.oApi._fnBindAction(c,{action:v},w),m++)}};try{c=e(i).find(t.activeElement).data("dt-idx")}catch(e){}x(e(i).empty().html('<ul class="pagination-list"/>').children("ul"),r),c&&e(i).find("[data-dt-idx="+c+"]").focus()},n});
+</script>
+
+<style>
+body {
+ font-family: 'Alata', sans-serif;
+}
+</style>
+<title>cos-toolkit-blue-arm64 Packages</title>
+</head>
+
+
+<body>
+<section class="hero is-mobile">
+  <div class="hero-body">
+    <div class="container ">
+      <div class="columns is-multiline is-mobile ">
+
+        <div class="column is-half">
+          <h1 class="title">
+            <a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser"><span class="icon has-text-primary is-medium 	"> <i class="fas fa-home"></i></span> </a> cos-toolkit-blue-arm64
+          </h1>
+        </div>
+
+        <div class="column is-half">
+   
+        </div>
+
+        <div class="column is-half">
+
+              <h2 class="subtitle">
+
+        List packages and versions available in "cos-toolkit-blue-arm64" repository
+             </h2>
+        </div>
+        <div class="column is-half">
+                      <a href="https://github.com/rancher-sandbox/cOS-toolkit"><span class="icon has-text-dark 	"> <i class="fas fa-code-branch"></i></span> </a>
+        </div>
+     </div>
+    </div>
+  </div>
+</section>
+
+<div class="container is-mobile">
+  <div class="notification is-info">
+    To enable cos-toolkit-blue-arm64 add in /etc/luet/luet.yaml the following:
+    <pre><code class="language-yaml">repositories:
+  - name: "cos-toolkit-blue-arm64"
+    type: "docker"
+    enable: true
+    urls:
+    - "quay.io/costoolkit/releases-blue-arm64"</code></pre>
+  </div>
+
+  <table  data-toggle="table"
+    data-search="true"
+    data-show-columns="true"
+    id="table"  >
+    <thead>
+  
+    <tr>
+        <th data-field="name" ><abbr title="Name">Name</abbr></th>
+        <th data-field="category" >Category</th>
+        <th data-field="version"><abbr title="Version">Version</abbr></th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <th><abbr title="Name">Name</abbr></th>
+        <th>Category</th>
+        <th><abbr title="Version">Version</abbr></th>
+      </tr>
+    </tfoot>
+
+    <tbody>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/cloud-config/accounting"> accounting</a></td>
+          <td class="category">cloud-config</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/cloud-config/accounting/0.4.2-10">0.4.2-10</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/distro/base"> base</a></td>
+          <td class="category">distro</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/distro/base/0.20230106">0.20230106</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/base-dracut-modules"> base-dracut-modules</a></td>
+          <td class="category">system</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/base-dracut-modules/0.2.0-6">0.2.0-6</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/cloud-config/boot-assessment"> boot-assessment</a></td>
+          <td class="category">cloud-config</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/cloud-config/boot-assessment/0.4.2-10">0.4.2-10</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/cloud-config/branding"> branding</a></td>
+          <td class="category">cloud-config</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/cloud-config/branding/0.4.2-10">0.4.2-10</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/cloud-config"> cloud-config</a></td>
+          <td class="category">system</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/cloud-config/0.24.2">0.24.2</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/recovery/cos"> cos</a></td>
+          <td class="category">recovery</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/recovery/cos/0.10.7">0.10.7</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/cos"> cos</a></td>
+          <td class="category">system</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/cos/0.10.7">0.10.7</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/cos-container"> cos-container</a></td>
+          <td class="category">system</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/cos-container/0.10.7">0.10.7</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/meta/cos-core"> cos-core</a></td>
+          <td class="category">meta</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/meta/cos-core/0.24.2">0.24.2</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/meta/cos-core-fips"> cos-core-fips</a></td>
+          <td class="category">meta</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/meta/cos-core-fips/0.24.2">0.24.2</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/cos-features"> cos-features</a></td>
+          <td class="category">system</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/cos-features/0.5-17">0.5-17</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/recovery/cos-img"> cos-img</a></td>
+          <td class="category">recovery</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/recovery/cos-img/0.10.7">0.10.7</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/meta/cos-light"> cos-light</a></td>
+          <td class="category">meta</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/meta/cos-light/0.24.2">0.24.2</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/meta/cos-minimal"> cos-minimal</a></td>
+          <td class="category">meta</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/meta/cos-minimal/0.24.2">0.24.2</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/meta/cos-minimal-fips"> cos-minimal-fips</a></td>
+          <td class="category">meta</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/meta/cos-minimal-fips/0.24.2">0.24.2</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/meta/cos-modules"> cos-modules</a></td>
+          <td class="category">meta</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/meta/cos-modules/0.24.2">0.24.2</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/cos-setup"> cos-setup</a></td>
+          <td class="category">system</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/cos-setup/0.6.5">0.6.5</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system-openrc/cos-setup"> cos-setup</a></td>
+          <td class="category">system-openrc</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system-openrc/cos-setup/0.2-16">0.2-16</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/meta/cos-verify"> cos-verify</a></td>
+          <td class="category">meta</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/meta/cos-verify/0.24.2">0.24.2</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/cos-wrapper"> cos-wrapper</a></td>
+          <td class="category">system</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/cos-wrapper/0.32-16">0.32-16</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/toolchain/cosign"> cosign</a></td>
+          <td class="category">toolchain</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/toolchain/cosign/1.13.1-4">1.13.1-4</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/toolchain/dasel"> dasel</a></td>
+          <td class="category">toolchain</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/toolchain/dasel/2.0.2-2">2.0.2-2</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/cloud-config/default-services"> default-services</a></td>
+          <td class="category">cloud-config</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/cloud-config/default-services/0.4.2-10">0.4.2-10</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/cloud-config/defaults"> defaults</a></td>
+          <td class="category">cloud-config</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/cloud-config/defaults/0.4.2-10">0.4.2-10</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/dracut-initrd"> dracut-initrd</a></td>
+          <td class="category">system</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/dracut-initrd/0.4.5">0.4.5</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/toolchain/elemental-cli"> elemental-cli</a></td>
+          <td class="category">toolchain</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/toolchain/elemental-cli/0.20230217">0.20230217</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/elemental-selinux"> elemental-selinux</a></td>
+          <td class="category">system</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/elemental-selinux/0.0.1-5">0.0.1-5</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/meta/fips-toolchain"> fips-toolchain</a></td>
+          <td class="category">meta</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/meta/fips-toolchain/0.24.2">0.24.2</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/build/golang"> golang</a></td>
+          <td class="category">build</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/build/golang/1.19.4-1">1.19.4-1</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/utils/gomplate"> gomplate</a></td>
+          <td class="category">utils</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/utils/gomplate/3.11.3-4">3.11.3-4</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/live/grub2"> grub2</a></td>
+          <td class="category">live</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/live/grub2/0.0.4-2">0.0.4-2</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/grub2-artifacts"> grub2-artifacts</a></td>
+          <td class="category">system</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/grub2-artifacts/0.0.3-16">0.0.3-16</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/grub2-config"> grub2-config</a></td>
+          <td class="category">system</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/grub2-config/0.1.4">0.1.4</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/grub2-efi-image"> grub2-efi-image</a></td>
+          <td class="category">system</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/grub2-efi-image/0.0.2-8">0.0.2-8</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/live/grub2-efi-image"> grub2-efi-image</a></td>
+          <td class="category">live</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/live/grub2-efi-image/0.0.4-2">0.0.4-2</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/utils/helm"> helm</a></td>
+          <td class="category">utils</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/utils/helm/3.10.3">3.10.3</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/toolchain/hugo"> hugo</a></td>
+          <td class="category">toolchain</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/toolchain/hugo/0.109.0">0.109.0</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/immutable-rootfs"> immutable-rootfs</a></td>
+          <td class="category">system</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/immutable-rootfs/0.8.8">0.8.8</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/utils/installer"> installer</a></td>
+          <td class="category">utils</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/utils/installer/0.30.0">0.30.0</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/utils/jq"> jq</a></td>
+          <td class="category">utils</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/utils/jq/1.6-34">1.6-34</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/selinux/k3s"> k3s</a></td>
+          <td class="category">selinux</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/selinux/k3s/1.2.2-2">1.2.2-2</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/utils/k9s"> k9s</a></td>
+          <td class="category">utils</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/utils/k9s/0.26.7-4">0.26.7-4</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/kernel"> kernel</a></td>
+          <td class="category">system</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/kernel/0.2.0-6">0.2.0-6</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/cloud-config/live"> live</a></td>
+          <td class="category">cloud-config</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/cloud-config/live/0.4.2-10">0.4.2-10</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/toolchain/luet"> luet</a></td>
+          <td class="category">toolchain</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/toolchain/luet/0.33.0-3">0.33.0-3</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/toolchain/luet-cosign"> luet-cosign</a></td>
+          <td class="category">toolchain</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/toolchain/luet-cosign/0.0.11-10">0.0.11-10</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/toolchain/luet-makeiso"> luet-makeiso</a></td>
+          <td class="category">toolchain</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/toolchain/luet-makeiso/0.4.0-10">0.4.0-10</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/toolchain/luet-mtree"> luet-mtree</a></td>
+          <td class="category">toolchain</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/toolchain/luet-mtree/0.0.10-7">0.0.10-7</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/utils/nerdctl"> nerdctl</a></td>
+          <td class="category">utils</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/utils/nerdctl/1.1.0-2">1.1.0-2</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/cloud-config/network"> network</a></td>
+          <td class="category">cloud-config</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/cloud-config/network/0.4.2-10">0.4.2-10</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/firmware/odroid-c2"> odroid-c2</a></td>
+          <td class="category">firmware</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/firmware/odroid-c2/20170419-5.197">20170419-5.197</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/selinux/rancher"> rancher</a></td>
+          <td class="category">selinux</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/selinux/rancher/0.2.1-13">0.2.1-13</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/utils/rancherd"> rancherd</a></td>
+          <td class="category">utils</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/utils/rancherd/0.0.1-alpha14-16">0.0.1-alpha14-16</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/firmware/raspberrypi-firmware"> raspberrypi-firmware</a></td>
+          <td class="category">firmware</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/firmware/raspberrypi-firmware/2021.03.10-2.1">2021.03.10-2.1</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/firmware/raspberrypi-firmware-config"> raspberrypi-firmware-config</a></td>
+          <td class="category">firmware</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/firmware/raspberrypi-firmware-config/2021.03.10-2.1">2021.03.10-2.1</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/firmware/raspberrypi-firmware-dt"> raspberrypi-firmware-dt</a></td>
+          <td class="category">firmware</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/firmware/raspberrypi-firmware-dt/2021.03.15-2.1">2021.03.15-2.1</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/cloud-config/recovery"> recovery</a></td>
+          <td class="category">cloud-config</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/cloud-config/recovery/0.4.2-10">0.4.2-10</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/cloud-config/rootfs"> rootfs</a></td>
+          <td class="category">cloud-config</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/cloud-config/rootfs/0.4.2-10">0.4.2-10</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/cloud-config/selinux"> selinux</a></td>
+          <td class="category">cloud-config</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/cloud-config/selinux/0.4.2-10">0.4.2-10</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/suc-integration"> suc-integration</a></td>
+          <td class="category">system</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/system/suc-integration/0.1-16">0.1-16</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/distro/tool"> tool</a></td>
+          <td class="category">distro</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/distro/tool/0.20221223">0.20221223</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/meta/toolchain"> toolchain</a></td>
+          <td class="category">meta</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/meta/toolchain/0.24.2">0.24.2</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/firmware/u-boot-rpi64"> u-boot-rpi64</a></td>
+          <td class="category">firmware</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/firmware/u-boot-rpi64/2021.01-5.1">2021.01-5.1</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/cloud-config/upgrade_grub_hooks"> upgrade_grub_hooks</a></td>
+          <td class="category">cloud-config</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/cloud-config/upgrade_grub_hooks/0.4.2-10">0.4.2-10</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/cloud-config/upgrades"> upgrades</a></td>
+          <td class="category">cloud-config</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/cloud-config/upgrades/0.4.2-10">0.4.2-10</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/toolchain/yip"> yip</a></td>
+          <td class="category">toolchain</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/toolchain/yip/0.11.4-2">0.11.4-2</a></td>
+          </tr>
+      
+        <tr>
+          <td class="name"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/toolchain/yq"> yq</a></td>
+          <td class="category">toolchain</td>
+          <td class="version"><a href="https://rancher-sandbox.github.io/cos-toolkit-package-browser/cos-toolkit-blue-arm64/toolchain/yq/4.30.6">4.30.6</a></td>
+          </tr>
+      
+    </tbody>
+  </table>
+
+
+</div>
+
+<script type="text/javascript">
+    $("#table").DataTable();
+</script>
+
+</body>
+
+</html>
